@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8336588b-79f8-454b-8066-08b9cdc2f539/microsoft.web/sites/subscriptions/8336588b-79f8-454b-8066-08b9cdc2f539/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/odysseus-app",
+    "appService.deploySubpath": "."
+}

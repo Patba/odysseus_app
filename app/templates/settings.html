@@ -1,0 +1,51 @@
+{% extends 'main_template.html' %}
+{% block title%}Settings{%endblock%}
+        {% block content %}
+                    <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
+                        <h5 class="display-6 text-nowrap text-capitalize mb-0" style="font-weight: bold;">Settings</h5>
+                    </div>
+                </div>
+                    <div class="card shadow mb-3">
+                        <div class="card-body">
+                            <form action="/change_password" method="post">
+                            <div class="mb-3">
+                                <label class="form-label" for="client_description"><strong>Change</strong>&nbsp;<strong>Password</strong><br></label>
+                                <input class="form-control" type="password" name="current_password" placeholder="Current Password" style="margin-bottom: 20px;">
+                                <input class="form-control" type="password" name="new_password" placeholder="New Password" style="margin: 0px;margin-bottom: 20px;">
+                                <div class="text-start mb-3">
+                                    <button class="btn btn-primary btn-lg text-center" type="submit" style="width: 123.672px;height: 31px;border-width: 0px;font-size: 16px;padding: 0px 16px;margin: 0px;">Change</button>
+                                </div>
+                            </div>
+                            </form>
+                            <form action="/change_email" method="post">
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Change</strong>&nbsp;<strong>Email</strong><br></label>
+                                <input class="form-control" type="email" name="current_email" placeholder="current@email" style="margin-bottom: 20px;">
+                                <input class="form-control" type="email" name="new_email" placeholder="new@email" style="margin-bottom: 20px;">
+                                <div class="text-start mb-3"><button class="btn btn-primary btn-lg text-center" type="submit" style="width: 123.672px;height: 31px;border-width: 0px;font-size: 16px;padding: 0px 16px;margin: 0px;">Change</button></div>
+                            </div>
+                            </form>
+                            <form action="/change_email_notifications" method="post">
+                            <div class="mb-3"><label class="form-label"><strong>&nbsp;Receive email notifications</strong></label>
+                                <div class="form-group mb-3">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="email_options" value="option_yes" required=""><label class="form-check-label">Yes</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="email_options" value="option_no" required=""><label class="form-check-label">No</label></div>
+                                    <div class="text-start mb-3"><button class="btn btn-primary btn-lg text-center" type="submit" style="width: 123.672px;height: 31px;border-width: 0px;font-size: 16px;padding: 0px 16px;margin: 0px;">Change</button></div>
+                                </div>
+                            </form>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <div class="mb-3"><strong>Currently</strong>&nbsp;<strong>Assigned Groups:</strong><br>
+                                        {%for group in groups %}
+                                        <a>{{group.name}}</a>
+                                            <br>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-end mb-3"></div>
+
+        {%endblock%}

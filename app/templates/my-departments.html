@@ -1,0 +1,37 @@
+{% extends 'main_template.html' %}
+{% block title%}Home{%endblock%}
+        {% block content %}
+            {% for department in departments %}
+                    <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
+                        <h5 class="display-6 text-nowrap text-capitalize mb-0" style="font-weight: bold;">{{ department.name }}</h5>
+
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th class="text-center invisible ">Sizeholder</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for user in department.users %}
+                                    <form action="/future" method="post">
+                                        <tr>
+                                            <td class="text-truncate">{{user.id}}</td>
+                                            <td class="text-truncate">{{user.name}}</td>
+                                            <td class="text-truncat w-25"><button class="btn btn-primary mr-0 d-flex" name="user_id" value="{{ user.id }}">Message</button></td>
+                                        </tr>
+                                    </form>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+            {% endblock %}

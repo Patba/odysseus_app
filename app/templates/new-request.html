@@ -1,0 +1,47 @@
+{%extends 'main_template.html' %}
+    {% block title%}New Request{%endblock%}
+    {% block content %}
+                    <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3">
+                        <h5 class="display-6 text-nowrap text-capitalize mb-0" style="font-weight: bold;">Create Request</h5>
+                        <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button" style="color: var(--bs-dark);background: #ffa502;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                </svg></button></div>
+                    </div>
+                </div>
+                <form action="/process-request" method="post">
+                    <div class="card shadow mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-8 col-lg-8">
+                                    <div class="mb-3"><label class="form-label" for="service_name"><strong>Title: *</strong></label><input class="form-control" type="text" id="service_name" maxlength="50" placeholder="Title" name="title" required=""></div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3"><label class="form-label" for="group"><strong>Group: *</strong><br></label>
+                                        <div id="floating-label-3" class="form-floating mb-3"><select name="group" class="form-select form-select" for="floatinginput" placeholder="HGsOFT" style="height: 56px;width: 295.663px;">
+                                            {% for group in groups %}
+                                                    <option value="{{ group.id }}">{{ group.name }}</option>
+                                            {% endfor %}
+                                            </select><label class="form-label" id="floating-label-4" for="floatinginput">Select ...</label></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4">
+                                    <div class="mb-3"><label class="form-label" for="priority"><strong>Priority: *</strong><br></label>
+                                        <div id="floating-label-3" class="form-floating mb-3"><select name="priority" class="form-select form-select" for="floatinginput" placeholder="HGsOFT" style="height: 56px;width: 295.663px;">
+                                                    <option value="Normal">Normal</option>
+                                                    <option value="Blocking">Blocking</option>
+                                                    <option value="Needed">Needed</option>
+                                            </select><label class="form-label" id="floating-label-4" for="floatinginput">Select ...</label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3"><label class="form-label" for="client_description"><strong>Description *</strong><br></label><textarea class="form-control" id="service_description" rows="4" name="description" placeholder="Ticket Description " required="" maxlength="1000"></textarea></div>
+                        </div>
+                    </div>
+                    <div class="text-end mb-3"><button class="btn btn-primary btn-lg send-ticket" type="submit">Send Ticket</button><a class="btn btn-danger btn-lg" role="button" href="/">Cancel</a></div>
+                </form>
+            </div>
+            <div class="container-loader">
+                                    <div class="spinner"></div>
+                                  </div>
+
+    {% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" style="--bs-primary: #ffa502;--bs-primary-rgb: 255,165,2;font-family: Roboto, sans-serif;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename="assets/bootstrap/css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/Roboto.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/fonts/fontawesome-all.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/fonts/font-awesome.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/fonts/fontawesome5-overrides.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="assets/css/styles.css") }}">
+</head>
+
+<body style="font-family: Roboto, sans-serif;">
+    <div class="container-fluid">
+        <div class="row row flex-nowrap">
+            <div class="min-vh-100 col text-primary col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                <div class="position-fixed d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"><a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" style="font-size: 17px;"><img alt="" width="42" height="42" style="width: 32px;height: 32px;" src="{{ url_for('static', filename="assets/img/odysseus_logo.png") }}"><span class="fs-5 d-none d-sm-inline" style="font-family: Roboto, sans-serif;font-size: 17px;">Odysseus</span></a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu" style="color: rgb(255,255,255);">
+                        <li class="nav-item"><a href="/" class="nav-link align-middle px-0"><i class="fa fa-home fs-4 bi-house" style="color: rgb(255,255,255);"></i><span class="text-primary ms-1 d-none d-sm-inline">Dashboard</span></a></li>
+                        <li class="nav-item"><a class="link-primary nav-link px-0 align-middle dropdown-toggle" href="#submenu1" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="submenu1" style="color: rgb(255,255,255);"><i class="fa fa-bar-chart fs-4 bi-speedometer2" style="color: rgb(255,255,255);"></i><span class="text-primary ms-1 d-none d-sm-inline">Administration</span></a>
+                            <ul id="submenu1" class="nav flex-column ms-1 collapse ms-1 ms-md-3">
+                                <li class="w-100"><a href="/add_group" class="nav-link px-0"><span class="d-none d-sm-inline">Add group</span></a></li>
+                                <li><a href="/add-user" class="nav-link px-0"><span class="d-none d-sm-inline">Add user</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/new-request" class="nav-link px-0 align-middle"><i class="fa fa-table fs-4 bi-table" style="color: rgb(255,255,255);"></i><span class="text-primary ms-1 d-none d-sm-inline">Create Request</span></a></li>
+                        <li>
+                            <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                <li class="w-100"><a href="#" class="nav-link px-0"><span class="d-none d-sm-inline">Item</span></a></li>
+                                <li><a href="#" class="nav-link px-0"><span class="d-none d-sm-inline">Item</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/future" class="nav-link px-0 align-middle"><i class="fa fa-th-large fs-4 bi-grid" style="color: rgb(255,255,255);"></i><span class="text-primary ms-1 d-none d-sm-inline">Projects</span></a>
+
+                        </li>
+                        <li><a href="/my-departments" class="nav-link px-0 align-middle"><i class="fa fa-users fs-4 bi-people" style="color: rgb(255,255,255);"></i><span class="text-primary ms-1 d-none d-sm-inline">My Departments</span></a></li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4"><a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user"></i><span class="d-none d-sm-inline mx-1">{{ session["user"] }}</span></a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+
+                            <li><a class="dropdown-item" href="/user_settings">Settings</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="col-12 col-xl-10 col-xxl-10">
+                <div class="card shadow">
+                    {% with messages = get_flashed_messages(with_categories=True) %}
+                        {% if messages %}
+                            {% for category, msg in messages %}
+                                     <div class="{{'alert alert-' + category}}" role="alert"><span> {{ msg }}</span></div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ url_for('static', filename="assets/js/Ludens---Create-Edit-Form-1.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/js/Ludens---Create-Edit-Form-2.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/js/Ludens---Create-Edit-Form-3.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/js/Ludens---Create-Edit-Form.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/bootstrap/js/bootstrap.min.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/js/Ultimate-Sidebar-Menu-BS5.js") }}"></script>
+    <script src="{{ url_for('static', filename="assets/js/spinner.js") }}"></script>
+</body>
+
+</html>
