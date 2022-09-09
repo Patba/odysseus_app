@@ -7,10 +7,10 @@
 
 # What is it?
 ## A ticketing system written using:
-1. [![](https://img.shields.io/badge/python-yellow?style=for-the-badge)]
-2. [![](https://img.shields.io/badge/flask-green?style=for-the-badge)]
-3. [![](https://img.shields.io/badge/SQLAlchemy(SQLite)-blue?style=for-the-badge)]
-4. [![](https://img.shields.io/badge/bcrypt-orange?style=for-the-badge)]
+1. ![](https://img.shields.io/badge/python-yellow?style=for-the-badge)
+2. ![](https://img.shields.io/badge/flask-green?style=for-the-badge)
+3. ![](https://img.shields.io/badge/SQLAlchemy(SQLite)-blue?style=for-the-badge)
+4. ![](https://img.shields.io/badge/bcrypt-orange?style=for-the-badge)
 
 # How can I access it?
 ## A deployed version for production is [here](https://odysseus-app.azurewebsites.net/)
