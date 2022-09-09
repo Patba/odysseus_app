@@ -14,6 +14,8 @@
 
 # How can I access it?
 ## A deployed version for production is [here](https://odysseus-app.azurewebsites.net/)
+### Credentials are as follows: 
+### *admin* *admin*
 
 ### **Functions**
 1. Create Tickets
