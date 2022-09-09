@@ -1,8 +1,19 @@
 # Odysseus
 ![plot](./odysseus_logo.png)
 
+[![](https://img.shields.io/badge/github-blue?style=for-the-badge)](https://github.com/Patba)
+[![](https://img.shields.io/badge/Production_Overview-orange?style=for-the-badge)](https://odysseus-app.azurewebsites.net/)
+
+
 # What is it?
-### A ticketing system written in <span style="color:yellow">Python</span>, using <span style="color:green">Flask</span>, SQLAlchemy (SQLite) and BCrypt
+## A ticketing system written using:
+1. [![](https://img.shields.io/badge/python-yellow?style=for-the-badge)]
+2. [![](https://img.shields.io/badge/flask-green?style=for-the-badge)]
+3. [![](https://img.shields.io/badge/SQLAlchemy(SQLite)-blue?style=for-the-badge)]
+4. [![](https://img.shields.io/badge/bcrypt-orange?style=for-the-badge)]
+
+# How can I access it?
+## A deployed version for production is [here](https://odysseus-app.azurewebsites.net/)
 
 ### **Functions**
 1. Create Tickets
