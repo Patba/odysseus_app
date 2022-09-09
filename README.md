@@ -37,6 +37,12 @@
 ## Ticket Overview
 ![plot](./showcase/ticket.png)
 
+## Create Ticket
+![plot](./showcase/create_ticket.png)
+
+## Email Notification upon request creation
+![plot](./showcase/email_notification.png)
+
 ## User Settings
 ![plot](./showcase/settings.png)
 
